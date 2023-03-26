@@ -13,7 +13,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: REST API call
-      uses: fjogeleit/http-request-action@v1
+        uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://api.rudderstack.com/transformations/2M5a8oQAtGAsLopL6UxQ3rjKdTo/versions'
           method: 'GET'
