@@ -13,7 +13,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: REST API call
-        id: rs get transformation
+        id: rs_get_transformation
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://api.rudderstack.com/transformations/2M5a8oQAtGAsLopL6UxQ3rjKdTo/versions'
@@ -22,7 +22,7 @@ jobs:
           password: '2NSsUj2JqOpiZSsAW5FF5UHYtf5'
           customHeaders: '{"Content-Type": "application/json"}'
       - name: show api response
-        run: echo ${{ steps.myRequest.outputs.response }}
+        run: echo ${{ steps.rs_get_transformation.outputs.response }}
       #  run: curl -X GET -H "Authorization: Basic cGllcnJlLXl2ZXNAZmF0bWFwLmNvbToyTlNzVWoySnFPcGlaU3NBVzVGRjVVSFl0ZjU=" \ 'https://api.rudderstack.com/transformations/2M5a8oQAtGAsLopL6UxQ3rjKdTo/versions'
       #- run: curl --location 'api.rudderstack.com/transformations/2M5a8oQAtGAsLopL6UxQ3rjKdTo' --header 'Authorization: Basic cGllcnJlLXl2ZXNAZmF0bWFwLmNvbToyTlNzVWoySnFPcGlaU3NBVzVGRjVVSFl0ZjU='
       - name: List files in the repository
